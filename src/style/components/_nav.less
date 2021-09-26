@@ -1,0 +1,128 @@
+#n {
+    position: fixed;
+    z-index: 10;
+    width: 100%;
+    display: flex;
+    background:@mask;
+    padding: 0.5rem;
+    & > ul {
+        display: flex;
+        align-items: center;
+        @media (max-width: 992px) {
+            left: 0;
+            flex-direction: column;
+            width: calc(100% - 4px);
+            position: fixed;
+            background:@mask;
+            border-radius: .5rem;
+            .mx(.125rem);
+        }
+    }
+    & li {
+        font-weight: 400;
+        margin: .5rem 1rem;
+    }
+    border-bottom: 1px solid @light;
+}
+
+#m{
+    & + label + ul {
+        top: -200vh;
+    }
+    &:checked + label + ul {
+        top: 3.5rem;
+    }
+}
+
+[for='m']{
+    @media (min-width: 992px) {
+        display: none;
+    }
+    @media (max-width: 992px) {
+        font-size: 2rem;
+        padding: 0 .5rem;
+        border: 1px solid @light;
+    }
+}
+
+[type='checkbox']{
+    background: transparent;
+    outline:0;
+    border: 0;
+    box-shadow: none;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    .box(1px);
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    &:focus + label {
+        outline: 2px solid #000;
+    }
+}
+
+#d {
+    & + label {
+        @media (max-width: 992px) {
+            display: none;
+        }
+        & + ul {
+            z-index: 1000;
+            @media (min-width: 992px) {
+                display: none;
+                border-radius: .5rem;
+                background: @mask;
+                padding: 1rem;
+                position: absolute;
+                margin-top: 1.25rem;
+                margin-left: -2rem;
+            }
+            @media (max-width: 992px) {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+                align-items: center;
+                margin-top: .5rem;
+                margin-left: 0;
+                padding: 0;
+                left: 0;
+            }
+        }
+    }
+    &:checked + label {
+        & + ul {
+            display: block;
+        }
+    }
+}
+
+.brand {
+    display: flex;
+    @media (min-width: 992px) {
+        border-right: 1px solid @light;
+        margin-right: .75rem;
+        padding-right: .75rem;
+    }
+    @media (max-width: 992px) {
+        .mx(auto);
+        padding-right: 0;
+        padding-left: 3rem;
+    }
+    & img {
+        .box(35px);
+    }
+    & div {
+        .mx(.5rem);
+    }
+    & span, & small {
+        display: block;
+    }
+    & small{
+        font-weight: 500;
+    }
+    & span {
+        font-weight: 600;
+    }
+}

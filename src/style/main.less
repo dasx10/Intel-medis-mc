@@ -1,44 +1,5 @@
-@import './_reset.less';
-@import './_nav.less';
-@import './_font.less';
-body {
-    background-image: url('./bg.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    font-family: Roboto;
-}
+@import './config/_index.less';
+@import './components/_index.less';
+@import './_default.less';
 
-header {
-    background-image: url('/slide/3.jpg');
-    background-attachment: fixed;
-    background-position: center -290px;
-    background-repeat: no-repeat;
-    background-size:cover;
-    box-shadow:0 0 10px hsla(0,0%,100%,.5);
-    text-shadow:2px 5px 3px #fff;
-    color:#225;
-    height:360px;
-}
-
-h1 {
-    font-size: 2.5rem;
-}
-
-main {
-    max-width: 87.5rem;
-    background:rgba(255, 255, 255, .75);
-    border-radius: 0.5rem;
-    padding: 1rem;
-    margin: 1rem;
-    @media (min-width: 92.5em) {
-        margin: 2rem auto;
-        padding: 2rem;
-    }
-}
-
-footer {
-    background: fixed url(/foo.jpg) top no-repeat;
-    background-size: auto;
-    background-size: cover;
-}
+@import './pages/_index.less';

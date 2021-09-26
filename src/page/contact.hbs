@@ -1,0 +1,22 @@
+<dl id='hc'>
+    <dt><h3>{{page.drink.name}} :</h3></dt>
+    {{#each page.drink.tel}}
+        <dd><a href="tel:+38{{this}}">{{tel tel=this}}</a></dd>
+    {{/each}}
+</dl>
+<ul id='contact'>
+    {{#each fil}}
+    <li>
+        <div>
+            <h3>{{this.name}}</h3>
+            <ul>
+                {{#each this.tel}}
+                    <li><a href="tel:+38{{this}}">{{tel tel=this}}</a></li>
+                {{/each}}
+            </ul>
+            <strong>{{this.address}}</strong>
+        </div>
+        <iframe src="{{this.frame}}"></iframe>
+    </li>
+    {{/each}}
+</ul>

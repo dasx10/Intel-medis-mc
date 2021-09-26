@@ -1,0 +1,77 @@
+.mq(
+    @a: {}, @b: {}, @c: {},
+    @a1: {}, @b1: {}, @c1: {},
+    @a2: {}, @b2: {}, @c2: {},
+    @a3: {}, @b3: {}, @c3: {},
+    @a4: {}, @b4: {}, @c4: {},
+) {
+    & when (isnumber(@a)) {
+        & when (isnumber(@c)) {
+            @media (min-width: 0em + (@a / 16)) and (max-width: -0.01em + (@c / 16)) {
+                @b();
+            }
+
+            & when (isruleset(@a1)) {
+                .mq(
+                    @c,
+                    @a1, @b1, @c1,
+                    @a2, @b2, @c2,
+                    @a3, @b3, @c3,
+                    @a4, @b4, @c4,
+                )
+            }
+        }
+
+        & when not (isnumber(@c)) {
+            @media (min-width: 0em + (@a / 16)) {
+                @b();
+            }
+        }
+    }
+
+    & when (isruleset(@a)) {
+        @media (max-width: -0.01em + (@b / 16)) {
+            @a();
+        }
+
+        & when (isruleset(@c)) {
+            .mq(
+                @b, @c,
+                @a1, @b1, @c1,
+                @a2, @b2, @c2,
+                @a3, @b3, @c3,
+                @a4, @b4, @c4,
+            )
+        }
+    }
+}
+
+.box(@height, @width: @height) {
+    height: @height;
+    width: @width;
+}
+
+.mx(@right, @left: @right) {
+    margin-right: @right;
+    margin-left: @left;
+}
+
+.my(@top, @bottom: @top) {
+    margin-top: @top;
+    margin-bottom: @bottom;
+}
+
+.px(@right, @left: @right) {
+    padding-right: @right;
+    padding-left: @left;
+}
+
+.py(@top, @bottom: @top) {
+    padding-top: @top;
+    padding-bottom: @bottom;
+}
+
+.bdy(@top, @bottom: @top) {
+    border-top: @top;
+    border-bottom: @bottom;
+}

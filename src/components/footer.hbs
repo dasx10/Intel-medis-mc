@@ -1,0 +1,23 @@
+<footer>
+    <h2><a href="/contacts">Контактная информация</a></h2>
+    <ul>
+        {{#each fil}}
+        <li>
+            <h4><a href="/contacts">{{this.name}} филиал</a></h4>
+            <ul>
+                {{#each this.tel}}
+                    <li><a href="tel:+38{{this}}">{{tel tel=this}}</a></li>
+                {{/each}}
+            </ul>
+            <p>{{this.address}}</p>
+        </li>
+        {{/each}}
+    </ul>
+    <div>
+        <h4>Наша почта</h4>
+        <a href="mailto:{{email}}">{{email}}</a>
+    </div>
+</footer>
+<script src="/index.js"></script>
+</body>
+</html>

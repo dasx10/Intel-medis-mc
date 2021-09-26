@@ -1,0 +1,56 @@
+#s {
+    & p {
+        margin: 1em 0;
+    }
+    & > li {
+        display: flex;
+        padding: 2em 0;
+        .mq(@md, {
+            & picture, & div {
+                width: calc(50% - 1em);
+                height: auto;
+                margin: .5em;
+            }
+        });
+
+        .mq({
+            & picture {
+                display: none;
+            }
+            & div {
+                width: 100%;
+            }
+        }, @md);
+        
+
+        & img {
+            .mq(
+                {
+                    display: none;
+                }, @md,
+                {
+                    height: 100%;
+                    object-fit: cover;
+                    border-radius: .25em;
+                }
+            );
+        }
+        & div {
+            display: flex;
+            flex-direction: column;
+        }
+        & a {
+            margin-top: auto;
+            .mq({
+                text-align: center;
+            },@xs, {
+                align-self: start;
+            })
+        }
+        &:nth-child(2n) {
+            & div {
+                order: -1;
+            }
+        }
+    }
+}

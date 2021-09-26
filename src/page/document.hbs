@@ -1,0 +1,11 @@
+<ul id="doc">
+    {{#each doc}}
+    <li>
+        <picture>
+            <source srcset="/d/{{this}}.avif" type="image/avif">
+            <source srcset="/d/{{this}}.webp" type="image/webp">
+            <img src="/d/{{this}}.jpg" alt="sertificat" width='460' height='652'>
+        </picture>
+    </li>
+    {{/each}}
+</ul>

@@ -7,8 +7,32 @@
     "gulp-cssmin": "^0.2.0",
     "gulp-group-css-media-queries": "^1.2.2",
     "gulp-htmlmin": "^5.0.1",
+    "gulp-imagemin": "^8.0.0",
     "gulp-less": "^5.0.0",
     "gulp-rename": "^2.0.0",
-    "gulp-wrap": "^0.15.0"
+    "gulp-uglify": "^3.0.2",
+    "gulp-wrap": "^0.15.0",
+    "gulp-svgo": "^2.2.1"
+  },
+  "name": "intel-medis",
+  "version": "1.0.0",
+  "main": "gulpfile.js",
+  "scripts": {
+    "dev": "gulp watch --dev",
+    "build": "gulp build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dasx10/im3.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dasx10/im3/issues"
+  },
+  "homepage": "https://github.com/dasx10/im3#readme",
+  "description": "",
+  "dependencies": {
+    
   }
 }

@@ -1,0 +1,43 @@
+<div id="c">
+    <button>&laquo;</button>
+    <h1>{{title}}</h1>
+    <ul>
+        {{#each carusel}}
+            {{#if @index}}
+            <li>
+            {{else}}
+            <li class="a">
+            {{/if}}
+                <div>
+                    <h2>{{this.name}}</h2>
+                    {{#if this.fil}}
+                        {{#each this.fil}}
+                            <h3><a href="/{{this.to}}">{{this.address}}</a></h3>
+                            <ul>
+                                {{#each this.tel}}
+                                    <li><a href="tel:+38{{this}}">{{tel tel=this}}</a></li>
+                                {{/each}}
+                            </ul>
+                        {{/each}}
+                    {{/if}}
+                    {{#if this.tel}}
+                        <ul>
+                            {{#each this.tel}}
+                            <li><a href="tel:+38{{this}}">{{tel tel=this}}</a></li>
+                            {{/each}}
+                        </ul>
+                    {{/if}}
+                </div>​<picture><source srcset="/c/{{this.to}}.avif" type="image/avif"><source srcset="/c/{{this.to}}.webp" type="image/webp"><img src="/c/{{this.to}}.jpg" alt="{{this.to}}"></picture></li>
+        {{/each}}
+    </ul>
+    <button>&raquo;</button>
+</div>
+<nav class="subNav">
+    <ul>
+        {{#each subNav}}
+            <li>
+                <a href="/{{this.to}}">{{{icon src=this.to}}}{{this.name}}</a>
+            </li>
+        {{/each}}
+    </ul>
+</nav>

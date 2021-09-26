@@ -1,0 +1,16 @@
+<ul id='s'>
+    {{#each page.index.data}}
+    <li>
+        ​<picture>
+            <source srcset="/s/{{this.to}}.avif" type="image/avif">
+            <source srcset="/s/{{this.to}}.webp" type="image/webp">
+            <img src="/s/{{this.to}}.jpg" alt="{{this.to}}">
+        </picture>
+        <div>
+            <h2><a href="{{this.to}}">{{this.name}}</a></h2>
+            <p>{{this.description}}</p>
+            <a href="/{{this.to}}" class="btn">Подробнее</a>
+        </div>
+    </li>
+    {{/each}}
+</ul>
