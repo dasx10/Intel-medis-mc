@@ -1,4 +1,4 @@
-<div id="c">
+<header id="c">
     <button>&laquo;</button>
     <h1>{{title}}</h1>
     <ul>
@@ -9,10 +9,10 @@
             <li class="a">
             {{/if}}
                 <div>
-                    <h2>{{this.name}}</h2>
+                    <h3>{{this.name}}</h3>
                     {{#if this.fil}}
                         {{#each this.fil}}
-                            <h3><a href="/{{this.to}}">{{this.address}}</a></h3>
+                            <address><a href="/{{this.to}}">{{this.address}}</a></address>
                             <ul>
                                 {{#each this.tel}}
                                     <li><a href="tel:+38{{this}}">{{tel tel=this}}</a></li>
@@ -31,13 +31,13 @@
         {{/each}}
     </ul>
     <button>&raquo;</button>
-</div>
-<nav class="subNav">
-    <ul>
-        {{#each subNav}}
-            <li>
-                <a href="/{{this.to}}">{{{icon src=this.to}}}{{this.name}}</a>
-            </li>
-        {{/each}}
-    </ul>
-</nav>
+    <nav class="subNav">
+        <ul>
+            {{#each subNav}}
+                <li>
+                    <a href="/{{this.to}}">{{{icon src=this.to}}}{{this.name}}</a>
+                </li>
+            {{/each}}
+        </ul>
+    </nav>
+</header>

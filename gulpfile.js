@@ -28,7 +28,7 @@ const isProd = !isDev;
 let path = {
     src:{
         css:        './src/style/main.less',
-        js:         './src/js/index.js',
+        js:         './src/js/**/*.js',
         img:        './src/image/**/*.{png,jpg,svg,webp}',
         html:       './src/html/*.hbs',
         page:       './src/page/*.hbs',
@@ -44,9 +44,9 @@ browserSync.init({
 
 function js() {
     return gulp
-    .src(path.src.js)
+    .src('./public/s.js')
     // .pipe(uglify())
-    .pipe(gulp.dest(path.build))
+    // .pipe(gulp.dest(path.build))
     .pipe(browserSync.stream())
 }
 
@@ -176,7 +176,7 @@ function watch(){
         path.src.data
     ], gulp.parallel([page, html]));
     gulp.watch(['./src/style/**/*.less'], css);
-    gulp.watch(['./src/js/*.js'], js);
+    gulp.watch(['./public/**/*.js'], js);
 }
 
 

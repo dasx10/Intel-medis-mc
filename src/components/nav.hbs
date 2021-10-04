@@ -1,14 +1,14 @@
 <nav id="n">
     <a href="/" class="brand">
-        <img src="/logo.png" alt="logo" width="35" height="35">
-        <div><small>{{subTitle}}</small><span>{{title}}</span></div>
+        {{{icon src="logo"}}}
+        <span><small>{{subTitle}}</small><strong>{{title}}</strong></span>
     </a><input type="checkbox" id="m"><label for="m">&equiv;</label><ul>
         {{#each nav}}
             <li>
                 <a href="/{{this.to}}">{{this.name}}</a>
             </li>
         {{/each}}
-        <li><input type="checkbox" id="d"><label for="d">Лечение</label><ul>
+        <li><input type="checkbox" id="treatment" name="treatment"><label for="treatment">Лечение</label><ul>
                 {{#each drower}}
                     <li>
                         <a href="/{{this.to}}">{{this.name}}</a>

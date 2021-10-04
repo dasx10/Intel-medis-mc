@@ -120,63 +120,81 @@ $.page.index.data = [
 $.page.drink.data = [
     {
         img: '/test.jpg',
-        data: fs.readFileSync('./src/util/drink.0.txt', 'utf8')
+        data: fs.readFileSync('./src/util/drink.0.txt', 'utf8'),
+        to: $.page.drink.to
     },
     {
         img: '/test.jpg',
-        data: fs.readFileSync('./src/util/drink.1.txt', 'utf8')
+        data: fs.readFileSync('./src/util/drink.1.txt', 'utf8'),
+        to: $.page.drink.to
+
     },
     {
         img: '/test.jpg',
-        data: fs.readFileSync('./src/util/drink.2.txt', 'utf8')
+        data: fs.readFileSync('./src/util/drink.2.txt', 'utf8'),
+        to: $.page.drink.to
+
     },
 ];
 
 $.page.alcohol.data = [
     {
         img: '/test.jpg',
-        data: fs.readFileSync('./src/util/alcohol.0.txt', 'utf8')
+        data: fs.readFileSync('./src/util/alcohol.0.txt', 'utf8'),
+        to: $.page.alcohol.to
+
     },
     {
         img: '/test.jpg',
-        data: fs.readFileSync('./src/util/alcohol.1.txt', 'utf8')
+        data: fs.readFileSync('./src/util/alcohol.1.txt', 'utf8'),
+        to: $.page.alcohol.to
+
     },
     {
         img: '/test.jpg',
-        data: fs.readFileSync('./src/util/alcohol.2.txt', 'utf8')
+        data: fs.readFileSync('./src/util/alcohol.2.txt', 'utf8'),
+        to: $.page.alcohol.to
+
     },
     {
         img: '/test.jpg',
-        data: fs.readFileSync('./src/util/alcohol.3.txt', 'utf8')
+        data: fs.readFileSync('./src/util/alcohol.3.txt', 'utf8'),
+        to: $.page.alcohol.to
     },
 ];
 
 $.page.drug.data = [
     {
         img: '/test.jpg',
-        data: fs.readFileSync('./src/util/drug.0.txt', 'utf8')
+        data: fs.readFileSync('./src/util/drug.0.txt', 'utf8'),
+        to: $.page.drug.to
     },
     {
         img: '/test.jpg',
-        data: fs.readFileSync('./src/util/drug.1.txt', 'utf8')
+        data: fs.readFileSync('./src/util/drug.1.txt', 'utf8'),
+        to: $.page.drug.to
     },
     {
         img: '/test.jpg',
-        data: fs.readFileSync('./src/util/drug.2.txt', 'utf8')
+        data: fs.readFileSync('./src/util/drug.2.txt', 'utf8'),
+        to: $.page.drug.to
     },
 ];
 
 $.page.game.data = [
     {
         img: '/test.jpg',
-        data: fs.readFileSync('./src/util/game.0.txt', 'utf8')
+        data: fs.readFileSync('./src/util/game.0.txt', 'utf8'),
+        to: $.page.game.to
     },
     {
         img: '/test.jpg',
-        data: fs.readFileSync('./src/util/game.1.txt', 'utf8')
+        data: fs.readFileSync('./src/util/game.1.txt', 'utf8'),
+        to: $.page.game.to
     },
     {
         img: '/test.jpg',
-        data: fs.readFileSync('./src/util/game.2.txt', 'utf8')
+        data: fs.readFileSync('./src/util/game.2.txt', 'utf8'),
+        to: $.page.game.to
     },
 ];

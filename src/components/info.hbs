@@ -1,6 +1,10 @@
 {{#each data}}
     <div>
-        <img src="{{this.img}}">
+        ​<picture>
+            <source srcset="/{{to}}/{{@index}}.avif" type="image/avif">
+            <source srcset="/{{to}}/{{@index}}.webp" type="image/webp">
+            <img src="/{{to}}/{{@index}}.jpg" alt="{{to}}" width="400" height="225">
+        </picture>
         <p>{{this.data}}</p>
     </div>
 {{/each}}

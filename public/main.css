@@ -213,6 +213,7 @@ h6 {
 
 #c {
   text-shadow: 0.125rem 0.125rem 0.125rem #fff;
+  height: 100vh;
 }
 
 #c h1 {
@@ -225,25 +226,20 @@ h6 {
   right: 1rem;
 }
 
-#c li {
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-}
-
 #c > ul {
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   min-height: 500px;
   background-color: rgba(255, 255, 255, 0.75);
 }
 
 #c > ul > li {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   position: absolute;
   z-index: 0;
   opacity: 0;
-  transition: 2s;
+  transition: opacity 2s;
 }
 
 #c > ul > li.a {
@@ -261,8 +257,8 @@ h6 {
 }
 
 #c img {
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
   min-height: 500px;
   left: 0;
   top: 0;
@@ -272,8 +268,6 @@ h6 {
 }
 
 footer {
-  background: rgba(78, 94, 117, 0.75);
-  color: #fff;
   padding: 1rem;
   text-align: center;
 }
@@ -301,9 +295,8 @@ footer > ul > li {
   font-weight: 300;
 }
 
-footer > ul > li > p {
+footer > ul > li > address {
   margin-top: auto;
-  font-weight: 500;
 }
 
 footer > ul ul > li {
@@ -311,7 +304,7 @@ footer > ul ul > li {
   margin-bottom: 0.5rem;
 }
 
-header {
+#h {
   background-image: url('/slide/drug.jpg');
   background-attachment: fixed;
   background-position: center -290px;
@@ -351,7 +344,12 @@ main {
 
 #n li {
   font-weight: 400;
-  margin: 0.5rem 1rem;
+}
+
+#n li a {
+  padding: 0.5rem 1rem;
+  width: 100%;
+  display: inline-block;
 }
 
 #m + label + ul {
@@ -381,11 +379,15 @@ main {
   outline: 2px solid #000;
 }
 
-#d + label + ul {
+#treatment + label {
+  padding: 0.5rem 1rem;
+}
+
+#treatment + label + ul {
   z-index: 1000;
 }
 
-#d:checked + label + ul {
+#treatment:checked + label + ul {
   display: block;
 }
 
@@ -393,17 +395,18 @@ main {
   display: flex;
 }
 
-.brand img {
+.brand svg {
   height: 35px;
   width: 35px;
 }
 
-.brand div {
+.brand span {
+  display: block;
   margin-right: 0.5rem;
   margin-left: 0.5rem;
 }
 
-.brand span,
+.brand strong,
 .brand small {
   display: block;
 }
@@ -412,8 +415,19 @@ main {
   font-weight: 500;
 }
 
-.brand span {
+.brand strong {
   font-weight: 600;
+}
+
+#cost dt {
+  font-size: 1.5em;
+  font-weight: 500;
+  margin-bottom: 1em;
+}
+
+#cost dd li {
+  margin-top: 0.25em;
+  margin-bottom: 0.25em;
 }
 
 body {
@@ -428,7 +442,7 @@ body {
 
 .btn {
   padding: 0.5em 1em;
-  background: #61B7CC;
+  background: #0067A8;
   color: #fff;
   border-radius: 0.25em;
   display: inline-block;
@@ -441,6 +455,49 @@ body {
   text-align: center;
   padding: 2rem 1rem;
   background: rgba(78, 94, 117, 0.75);
+}
+
+.d a[href^='tel']::before {
+  content: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" fill="%23fff" width="24" height="24" %3E%3Cpath d="M0 0h24v24H0V0z" fill="none"/%3E%3Cpath d="M6.54 5c.06.89.21 1.76.45 2.59l-1.2 1.2c-.41-1.2-.67-2.47-.76-3.79h1.51m9.86 12.02c.85.24 1.72.39 2.6.45v1.49c-1.32-.09-2.59-.35-3.8-.75l1.2-1.19M7.5 3H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.49c0-.55-.45-1-1-1-1.24 0-2.45-.2-3.57-.57a.84.84 0 00-.31-.05c-.26 0-.51.1-.71.29l-2.2 2.2a15.149 15.149 0 01-6.59-6.59l2.2-2.2c.28-.28.36-.67.25-1.02A11.36 11.36 0 018.5 4c0-.55-.45-1-1-1z"/%3E%3C/svg%3E');
+}
+
+a[href^='tel'] {
+  margin-left: 1.5em;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  display: inline-block;
+}
+
+a[href^='tel']::before {
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  content: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="24" height="24" %3E%3Cpath d="M0 0h24v24H0V0z" fill="none"/%3E%3Cpath d="M6.54 5c.06.89.21 1.76.45 2.59l-1.2 1.2c-.41-1.2-.67-2.47-.76-3.79h1.51m9.86 12.02c.85.24 1.72.39 2.6.45v1.49c-1.32-.09-2.59-.35-3.8-.75l1.2-1.19M7.5 3H4c-.55 0-1 .45-1 1 0 9.39 7.61 17 17 17 .55 0 1-.45 1-1v-3.49c0-.55-.45-1-1-1-1.24 0-2.45-.2-3.57-.57a.84.84 0 00-.31-.05c-.26 0-.51.1-.71.29l-2.2 2.2a15.149 15.149 0 01-6.59-6.59l2.2-2.2c.28-.28.36-.67.25-1.02A11.36 11.36 0 018.5 4c0-.55-.45-1-1-1z"/%3E%3C/svg%3E');
+  background-size: 1.25em 1.25em;
+  background-position: center;
+  position: absolute;
+  margin-left: -1.5em;
+  margin-top: 0.025em;
+}
+
+address {
+  font-weight: 500;
+}
+
+[src^='/qr'] {
+  float: left;
+  margin-right: 2em;
+}
+
+a > i {
+  display: inline-block;
+  border: 2px solid #0067A8;
+  color: #0067A8;
+  width: 1em;
+  height: 1em;
+  text-align: center;
+  border-radius: 50%;
+  font-weight: 900;
 }
 
 #hc > dd {
@@ -495,6 +552,12 @@ body {
 
 #s > li:nth-child(2n) div {
   order: -1;
+}
+
+@media (min-width: 87.5em) {
+  body {
+    font-size: 1.125rem;
+  }
 }
 
 @media (min-width: 92.5em) {
@@ -620,7 +683,7 @@ body {
   }
 
   .subNav svg {
-    fill: #61B7CC;
+    fill: #0067A8;
     height: 2.5em;
     width: 2.5em;
     margin-bottom: 0.5em;
@@ -633,7 +696,7 @@ body {
     display: none;
   }
 
-  #d + label + ul {
+  #treatment + label + ul {
     display: none;
     border-radius: 0.5rem;
     background: rgba(255, 255, 255, 0.75);
@@ -665,12 +728,6 @@ body {
   }
 }
 
-@media (min-width: 75em) {
-  body {
-    font-size: 1.25rem;
-  }
-}
-
 @media (max-width: 992px) {
   #n > ul {
     left: 0;
@@ -689,11 +746,11 @@ body {
     border: 1px solid #ddf;
   }
 
-  #d + label {
+  #treatment + label {
     display: none;
   }
 
-  #d + label + ul {
+  #treatment + label + ul {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -811,6 +868,12 @@ body {
 
 @media (min-width: 62em) and (max-width: 74.99em) {
   body {
-    font-size: 1.125rem;
+    font-size: 1.05rem;
+  }
+}
+
+@media (min-width: 75em) and (max-width: 87.49em) {
+  body {
+    font-size: 1.075rem;
   }
 }

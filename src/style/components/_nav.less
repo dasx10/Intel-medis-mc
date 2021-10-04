@@ -20,7 +20,11 @@
     }
     & li {
         font-weight: 400;
-        margin: .5rem 1rem;
+        & a {
+            padding: .5rem 1rem;
+            width: 100%;
+            display: inline-block;
+        }
     }
     border-bottom: 1px solid @light;
 }
@@ -62,8 +66,9 @@
     }
 }
 
-#d {
+#treatment {
     & + label {
+        padding: .5rem 1rem;
         @media (max-width: 992px) {
             display: none;
         }
@@ -110,19 +115,20 @@
         padding-right: 0;
         padding-left: 3rem;
     }
-    & img {
+    & svg {
         .box(35px);
     }
-    & div {
+    & span {
+        display: block;
         .mx(.5rem);
     }
-    & span, & small {
+    & strong, & small {
         display: block;
     }
     & small{
         font-weight: 500;
     }
-    & span {
+    & strong {
         font-weight: 600;
     }
 }

@@ -2,6 +2,7 @@
     @pos: 30vh;
     @pos2: @pos + 5;
     text-shadow: .125rem .125rem .125rem #fff;
+    height: 100vh;
     .mq({
         text-align: center;
     }, @sm);
@@ -39,21 +40,18 @@
     & ul + button {
         right: 1rem;
     }
-    & li {
-        .my(.5rem);
-    }
     & > ul {
         width: 100vw;
-        height: 100vh;
+        height: 100%;
         min-height: 500px;
         background-color: @mask;
         & > li {
             width: 100%;
-            height: 100vh;
+            height: 100%;
             position: absolute;
             z-index: 0;
             opacity: 0;
-            transition: 2s;
+            transition: opacity 2s;
             &.a {
                 z-index: 1;
                 opacity: 1;
@@ -77,8 +75,8 @@
     }
 
     & img {
-        height: 100vh;
-        width:  100vw;
+        height: 100%;
+        width:  100%;
         min-height: 500px;
         left: 0;
         top: 0;
@@ -133,7 +131,7 @@
             }
         }
         & svg {
-            fill: #61B7CC;
+            fill: @primary;
             .box(2.5em);
             margin-bottom: .5em;
             transition: transform .25s;
