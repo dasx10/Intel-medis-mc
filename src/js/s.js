@@ -39,34 +39,69 @@ function s() {
 t=S(s,7000);
 
 
-const main = document.getElementsByTagName('main')[0];
+const nav = (path = location.pathname) => {
+    const list = document.querySelectorAll('#n>ul>li');
+    const next = list[4].querySelectorAll('ul>li');
+    const cur = path.replace(/[^a-zA-Z_]/g, '');
+    if (cur) {
+        list.forEach(e => e.className='');
+        next.forEach(e => e.className='');
+        switch (cur) {
+            case 'contacts':  list[1].className = 'active'; break;
+            case 'documents': list[2].className = 'active'; break;
+            case 'cost':      list[3].className = 'active'; break;
+            default: {
+                list[4].className = 'active';
+                switch (cur) {
+                    case 'drink':        next[0].className = 'active'; break;
+                    case 'alcohol':      next[1].className = 'active'; break;
+                    case 'drug':         next[2].className = 'active'; break;
+                    case 'game':         next[3].className = 'active'; break;
+                    default:             next[4].className = 'active'; break;
+                }
+                break;
+            }
+        }
+    } else {
+        list[0].className = 'active';
+        list[4].className = list[1].className = list[2].className = list[3].className = '';
+    }
+}
+nav();
+
 
 addEventListener('click', function (e) {
     let href = '';
-    e.path.find((a) => {
-        return href = a.pathname
-    });
-
-    if (/\/[a-z]{0,}$|^\/$/.test(href)) {
+    e.path.find((a) => href = a.pathname);
+    if (/\/[a-zA-Z_]{0,}$|^\/$/.test(href)) {
         const part = href.split('/');
         const last = part[part.length-1];
-        if (last.length && last.split('.').length === 1 && last[last.length-1] !== '/') href+='/'; 
+        if (last.length&&last.split('.').length===1&&last[last.length-1]!=='/')href+='/'; 
         e.preventDefault();
         if (location.pathname !== href && location.pathname + '/' !== href) {
-            history.pushState(null, null, href);
-            fetch(href)
-            .then(e => e.text())
-            .then(e => {
-                main.innerHTML = e.match(/<main>.+<\/main>/)[0].replace(/<main>|<\/main>/g, '');
-                const header = document.getElementsByTagName('header')[0];
-                header.outerHTML = e.match(/<header id=['|"].+['|"]>.+<\/header>/)[0];
-                scroll(0, 0);
-                document.getElementById('treatment').checked = false;
+            fetch(href).then(e=>e.text()).then(e=>{
+                try{
+                    const header = document.querySelector('body>header');
+                    const h2     = document.querySelector('body>h2.d');
+                    const main   = document.querySelector('body>main');
+
+                    console.log(e.match(/<main(.+)<\/main>/)[0]);
+                    
+                    document.title =   e.match(/<title(.+)<\/title>/)[0].substr(7).replace('</title>', '');
+                    h2.outerHTML   =   e.match(/<h2 class=['|"]d['|"]>[^<]+<\/h2>/)[0];
+                    main.outerHTML =   e.match(/<main(.+)<\/main>/)[0];
+                    header.outerHTML = e.match(/<header(.+)<\/header>/)[0];
+                    history.pushState(null, null, href);
+                    nav(href);
+                    window.scroll(0, 0);
+                } catch {
+                    location.href = href;
+                }
             })
         }
     }
-    else if (event.target.innerText === '»') T(n);
-    else if (event.target.innerText === '«') T(p);
+    else if (e.target.innerText === '»') T(n);
+    else if (e.target.innerText === '«') T(p);
 });
 
 // if('serviceWorker' in navigator) {

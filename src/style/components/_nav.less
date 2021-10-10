@@ -8,6 +8,9 @@
     & > ul {
         display: flex;
         align-items: center;
+        & > li.active {
+            color: #000;
+        }
         @media (max-width: 992px) {
             left: 0;
             flex-direction: column;
@@ -20,6 +23,10 @@
     }
     & li {
         font-weight: 400;
+        color: #777;
+        &.active > a {
+            color: #000;
+        }
         & a {
             padding: .5rem 1rem;
             width: 100%;
@@ -68,6 +75,12 @@
 
 #treatment {
     & + label {
+        &::after {
+            content: '▼';
+            display: inline-block;
+            margin-left: .5em;
+            transform: scale(.75);
+        }
         padding: .5rem 1rem;
         @media (max-width: 992px) {
             display: none;
@@ -87,7 +100,6 @@
                 display: flex;
                 flex-direction: column;
                 width: 100%;
-                text-align: center;
                 align-items: center;
                 margin-top: .5rem;
                 margin-left: 0;
@@ -99,6 +111,9 @@
     &:checked + label {
         & + ul {
             display: block;
+        }
+        &::after {
+            content: '▲';
         }
     }
 }

@@ -15,6 +15,8 @@ body {
     color: #fff;
     border-radius: .25em;
     display: inline-block;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
 }
 
 .d {
@@ -65,4 +67,123 @@ a>i{
     text-align: center;
     border-radius: 50%;
     font-weight: 900;
+}
+
+.info {
+    // display: flex;
+    margin: 1rem -1rem;
+    padding: 0;
+    .mq({
+        & picture, & source, & img {
+            display: none;
+        }
+        padding: 1rem;
+    }, @md,  {
+        & picture {
+            margin: 1.25rem 1.25rem 0 1.25rem;
+            width: 400px;
+            float: left;
+            & > img {
+                width: 100%;
+                border-radius: 0.25rem;
+            }
+        }
+        & > p {
+            margin: 0 1rem;
+            min-height: 225px;
+        }
+        &:nth-child(2n) {
+            & picture {
+                float: right;
+                order: 2;
+            }
+        }
+    });
+    & + & {
+        border-top: 1px solid @light;
+    }
+}
+
+.in {
+    display: flex;
+    flex-flow: row wrap;
+    margin: 1rem -1rem;
+    padding: 1rem;
+    .mq({
+        & > picture {
+            display: none;
+        }
+    }, @md, {
+        & > div {
+            @del: 100% / 3 * 2;
+            margin-right: 0.5rem;
+            margin-left: 0.5rem;
+            width: calc(@del - 1rem);
+        }
+        & > picture {
+            @del: 100% / 3;
+            margin-right: 0.5rem;
+            margin-left: 0.5rem;
+            width: calc(@del - 1rem);
+        }
+    });
+    &:nth-child(2n) {
+        & > div {
+            order: -1;
+        }
+    }
+}
+
+details {
+    & > * {
+        border: 1px solid #333;
+        padding: 1rem;
+        margin-top: .5rem;
+        margin-bottom: .5rem;
+        
+    }
+}
+
+summary {
+    cursor: pointer;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+dt {
+    font-size: 1.5em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+p {
+    padding: .5rem 0;
+}
+
+.fl {
+    float:  right;
+    margin-bottom: 2rem;
+}
+
+.brad {
+    background: @mask;
+    padding: 1rem;
+    border: 1px solid @light;
+    border-radius: .5rem;
+    & a {
+        color: @primary;
+    }
+    & span {
+        color: #555;
+    }
+    & > li {
+        display: inline-block;
+    }
+    & > li + li {
+        margin-left: .5rem;
+        &::before {
+            content: '|';
+            margin-right: .5rem;
+        }
+    }
 }

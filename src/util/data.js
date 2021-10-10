@@ -67,6 +67,11 @@ $.page = {
         name: "Физиотерапия",
         description: "Область клинической медицины, изучающая лечебные свойства физических факторов и разрабатывающая методы их применения для лечения и профилактики болезней, а также медицинской реабилитации, называется физиотерапией."
     },
+    fizeo_info: {
+        to: "fizeo_info",
+        name: "Физиотерапия",
+
+    },
     contacts: {
         to: "contacts",
         name: "Контакты",
@@ -119,18 +124,15 @@ $.page.index.data = [
 
 $.page.drink.data = [
     {
-        img: '/test.jpg',
         data: fs.readFileSync('./src/util/drink.0.txt', 'utf8'),
         to: $.page.drink.to
     },
     {
-        img: '/test.jpg',
         data: fs.readFileSync('./src/util/drink.1.txt', 'utf8'),
         to: $.page.drink.to
 
     },
     {
-        img: '/test.jpg',
         data: fs.readFileSync('./src/util/drink.2.txt', 'utf8'),
         to: $.page.drink.to
 
@@ -139,25 +141,21 @@ $.page.drink.data = [
 
 $.page.alcohol.data = [
     {
-        img: '/test.jpg',
         data: fs.readFileSync('./src/util/alcohol.0.txt', 'utf8'),
         to: $.page.alcohol.to
 
     },
     {
-        img: '/test.jpg',
         data: fs.readFileSync('./src/util/alcohol.1.txt', 'utf8'),
         to: $.page.alcohol.to
 
     },
     {
-        img: '/test.jpg',
         data: fs.readFileSync('./src/util/alcohol.2.txt', 'utf8'),
         to: $.page.alcohol.to
 
     },
     {
-        img: '/test.jpg',
         data: fs.readFileSync('./src/util/alcohol.3.txt', 'utf8'),
         to: $.page.alcohol.to
     },
@@ -165,17 +163,14 @@ $.page.alcohol.data = [
 
 $.page.drug.data = [
     {
-        img: '/test.jpg',
         data: fs.readFileSync('./src/util/drug.0.txt', 'utf8'),
         to: $.page.drug.to
     },
     {
-        img: '/test.jpg',
         data: fs.readFileSync('./src/util/drug.1.txt', 'utf8'),
         to: $.page.drug.to
     },
     {
-        img: '/test.jpg',
         data: fs.readFileSync('./src/util/drug.2.txt', 'utf8'),
         to: $.page.drug.to
     },
@@ -196,5 +191,16 @@ $.page.game.data = [
         img: '/test.jpg',
         data: fs.readFileSync('./src/util/game.2.txt', 'utf8'),
         to: $.page.game.to
+    },
+];
+
+$.page.fizeo_info.data = [
+    {
+        data: fs.readFileSync('./src/util/fizeo_info.0.txt', 'utf8'),
+        to: $.page.fizeo_info.to
+    },
+    {
+        data: fs.readFileSync('./src/util/fizeo_info.1.txt', 'utf8'),
+        to: $.page.fizeo_info.to
     },
 ];
