@@ -19,9 +19,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "dev": "gulp watch --dev",
-    "build": "gulp build",
-    "start": "node index.js"
+    "build": "gulp build"
   },
   "repository": {
     "type": "git",
