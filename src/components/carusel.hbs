@@ -9,7 +9,7 @@
             <li class="a">
             {{/if}}
                 <div>
-                    <h3>{{this.name}}</h3>
+                    <h3><a href="{{this.to}}">{{this.name}}</a></h3>
                     {{#if this.fil}}
                         {{#each this.fil}}
                             <address><a href="/{{this.to}}">{{this.address}}</a></address>

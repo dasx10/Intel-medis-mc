@@ -81,19 +81,19 @@ addEventListener('click', function (e) {
         if (location.pathname !== href && location.pathname + '/' !== href) {
             fetch(href).then(e=>e.text()).then(e=>{
                 try{
-                    const header = document.querySelector('body>header');
                     const h2     = document.querySelector('body>h2.d');
-                    const main   = document.querySelector('body>main');
-
-                    console.log(e.match(/<main(.+)<\/main>/)[0]);
-                    
+                    const header = document.querySelector('body>header');
+                    const main   = document.querySelector('body>main');                    
                     document.title =   e.match(/<title(.+)<\/title>/)[0].substr(7).replace('</title>', '');
                     h2.outerHTML   =   e.match(/<h2 class=['|"]d['|"]>[^<]+<\/h2>/)[0];
                     main.outerHTML =   e.match(/<main(.+)<\/main>/)[0];
                     header.outerHTML = e.match(/<header(.+)<\/header>/)[0];
                     history.pushState(null, null, href);
                     nav(href);
+                    const input = document.getElementById('treatment');
+                    if (input) input.checked = false;
                     window.scroll(0, 0);
+                    f();
                 } catch {
                     location.href = href;
                 }

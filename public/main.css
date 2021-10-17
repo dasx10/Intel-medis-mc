@@ -307,7 +307,7 @@ footer > ul ul > li {
 #h {
   background-image: url('/slide/drug.jpg');
   background-attachment: fixed;
-  background-position: center -290px;
+  background-position: center top 80%;
   background-repeat: no-repeat;
   background-size: cover;
   box-shadow: 0 0 10px hsla(0, 0%, 100%, 0.5);
@@ -596,6 +596,15 @@ p {
 .brad > li + li::before {
   content: '|';
   margin-right: 0.5rem;
+}
+
+ol {
+  padding-left: 1em;
+}
+
+a:hover,
+label:hover {
+  text-shadow: 0 0 0.05em rgba(0, 0, 0, 0.25);
 }
 
 #hc > dd {
@@ -1019,5 +1028,11 @@ p {
 @media (min-width: 75em) and (max-width: 87.49em) {
   body {
     font-size: 1.075rem;
+  }
+}
+
+@media (min-height: 450px) {
+  #h {
+    background-position: center top -120px;
   }
 }

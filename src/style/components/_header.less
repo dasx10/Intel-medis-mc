@@ -1,9 +1,12 @@
 #h {
     background-image: url('/slide/drug.jpg');
     background-attachment: fixed;
-    background-position: center -290px;
+    background-position: center top 80%;
+    @media (min-height: 450px) {
+        background-position: center top -120px;
+    }
     background-repeat: no-repeat;
-    background-size:cover;
+    background-size: cover;
     box-shadow:0 0 10px hsla(0,0%,100%,.5);
     text-shadow:2px 5px 3px #fff;
     color:#225;
