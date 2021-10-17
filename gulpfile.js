@@ -35,7 +35,7 @@ let path = {
         components: './src/components/*.hbs',
         data:       './src/util/data.js',
     },
-    build:'./docs'
+    build:'./public'
 }
 
 browserSync.init({
@@ -44,7 +44,7 @@ browserSync.init({
 
 function js() {
     return gulp
-    .src('./docs/s.js')
+    .src('./public/s.js')
     // .pipe(uglify())
     // .pipe(gulp.dest(path.build))
     .pipe(browserSync.stream())
@@ -176,7 +176,7 @@ function watch(){
         path.src.data
     ], gulp.parallel([page, html]));
     gulp.watch(['./src/style/**/*.less'], css);
-    gulp.watch(['./docs/**/*.js'], js);
+    gulp.watch(['./public/**/*.js'], js);
 }
 
 

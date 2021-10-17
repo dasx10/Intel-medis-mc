@@ -5,13 +5,13 @@
     </a><input type="checkbox" id="m"><label for="m">&equiv;</label><ul>
         {{#each nav}}
             <li>
-                <a href="/im3/{{this.to}}">{{this.name}}</a>
+                <a href="/{{this.to}}">{{this.name}}</a>
             </li>
         {{/each}}
         <li><input type="checkbox" id="treatment" name="treatment"><label for="treatment">Лечение</label><ul>
                 {{#each drower}}
                     <li>
-                        <a href="/im3/{{this.to}}">{{this.name}}</a>
+                        <a href="/{{this.to}}">{{this.name}}</a>
                     </li>
                 {{/each}}
             </ul>

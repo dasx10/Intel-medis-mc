@@ -17,10 +17,11 @@
   },
   "name": "intel-medis",
   "version": "1.0.0",
-  "main": "gulpfile.js",
+  "main": "index.js",
   "scripts": {
     "dev": "gulp watch --dev",
-    "build": "gulp build"
+    "build": "gulp build",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
