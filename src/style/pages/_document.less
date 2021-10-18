@@ -5,5 +5,14 @@
         display: inline-block;
         width: calc(@del - 1em);
         margin: .5em;
+        @media (max-width: 992px) {
+            @del: 100% / 2;
+            width: calc(@del - 1em);
+        }
+        @media (max-width: 600px) {
+            width: 100%;
+            margin-right: auto;
+            margin-left: auto;
+        }
     }
 }

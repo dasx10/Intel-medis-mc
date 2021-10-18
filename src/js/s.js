@@ -43,9 +43,9 @@ const nav = (path = location.pathname) => {
     const list = document.querySelectorAll('#n>ul>li');
     const next = list[4].querySelectorAll('ul>li');
     const cur = path.replace(/[^a-zA-Z_]/g, '');
+    list.forEach(e => e.className='');
+    next.forEach(e => e.className='');
     if (cur) {
-        list.forEach(e => e.className='');
-        next.forEach(e => e.className='');
         switch (cur) {
             case 'contacts':  list[1].className = 'active'; break;
             case 'documents': list[2].className = 'active'; break;
@@ -69,8 +69,7 @@ const nav = (path = location.pathname) => {
 }
 nav();
 
-
-addEventListener('click', function (e) {
+function setPage (e) {
     let href = '';
     e.path.find((a) => href = a.pathname);
     if (/\/[a-zA-Z_]{0,}$|^\/$/.test(href)) {
@@ -78,6 +77,10 @@ addEventListener('click', function (e) {
         const last = part[part.length-1];
         if (last.length&&last.split('.').length===1&&last[last.length-1]!=='/')href+='/'; 
         e.preventDefault();
+        const input = document.getElementById('treatment');
+        if (input) input.checked = false;
+        const input2 = document.getElementById('m');
+        if (input2) input2.checked = false;
         if (location.pathname !== href && location.pathname + '/' !== href) {
             fetch(href).then(e=>e.text()).then(e=>{
                 try{
@@ -90,8 +93,6 @@ addEventListener('click', function (e) {
                     header.outerHTML = e.match(/<header(.+)<\/header>/)[0];
                     history.pushState(null, null, href);
                     nav(href);
-                    const input = document.getElementById('treatment');
-                    if (input) input.checked = false;
                     window.scroll(0, 0);
                     f();
                 } catch {
@@ -100,7 +101,31 @@ addEventListener('click', function (e) {
             })
         }
     }
-    else if (e.target.innerText === '»') T(n);
+}
+
+addEventListener('popstate', (event) => {
+    fetch(location.href).then(e=>e.text()).then(e=>{
+        try{
+            const h2     = document.querySelector('body>h2.d');
+            const header = document.querySelector('body>header');
+            const main   = document.querySelector('body>main');                    
+            document.title =   e.match(/<title(.+)<\/title>/)[0].substr(7).replace('</title>', '');
+            h2.outerHTML   =   e.match(/<h2 class=['|"]d['|"]>[^<]+<\/h2>/)[0];
+            main.outerHTML =   e.match(/<main(.+)<\/main>/)[0];
+            header.outerHTML = e.match(/<header(.+)<\/header>/)[0];
+            history.pushState(null, null, href);
+            nav(href);
+            window.scroll(0, 0);
+            f();
+        } catch {
+            location.href = href;
+        }
+    });
+});
+
+addEventListener('click', function (e) {
+    setPage(e);
+    if (e.target.innerText === '»') T(n);
     else if (e.target.innerText === '«') T(p);
 });
 

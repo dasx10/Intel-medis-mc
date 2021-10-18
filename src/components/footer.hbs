@@ -3,7 +3,7 @@
     <ul>
         {{#each fil}}
         <li>
-            <h4><a href="/contacts">{{this.name}} филиал</a></h4>
+            <h4><a href="/contacts">{{this.name}}</a></h4>
             <ul>
                 {{#each this.tel}}
                     <li><a href="tel:+38{{this}}">{{tel tel=this}}</a></li>
@@ -13,6 +13,14 @@
         </li>
         {{/each}}
     </ul>
+    <div>
+        <h4>{{page.drink.name}}</h4>
+        <ul>
+            {{#each page.drink.tel}}
+                <li><a href="tel:+38{{this}}">{{tel tel=this}}</a></li>
+            {{/each}}
+        </ul>
+    </div>
     <div>
         <h4>Наша почта</h4>
         <a href="mailto:{{email}}">{{email}}</a>

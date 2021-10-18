@@ -35,7 +35,9 @@ a[href^='tel'] {
     margin-left: 1.5em;
     margin-top: 0.5em;
     margin-bottom: 0.5em;
-    display: inline-block;
+    display: inline-flex;
+    align-items: bottom;
+    height: 1.5rem;
     &::before {
         width:  1em;
         height: 1em;
@@ -54,8 +56,16 @@ address {
 }
 
 [src^='/qr'] {
-    float: left;
     margin-right: 2em;
+    margin-bottom: 2em;
+    .mq({
+        margin-right: auto;
+        margin-left: auto;
+        display: block;
+        float: none;
+    }, @xs, {
+        float: left;
+    });
 }
 
 a>i{
@@ -71,13 +81,17 @@ a>i{
 
 .info {
     // display: flex;
-    margin: 1rem -1rem;
+    & + & {
+        margin-top: 1rem;
+    }
+    margin-right: -1rem;
+    margin-left: -1rem;
     padding: 0;
     .mq({
         & picture, & source, & img {
             display: none;
         }
-        padding: 1rem;
+        padding: 0.125rem 1rem;
     }, @md,  {
         & picture {
             margin: 1.25rem 1.25rem 0 1.25rem;
@@ -174,7 +188,7 @@ p {
         color: @primary;
     }
     & span {
-        color: #555;
+        color: #777;
     }
     & > li {
         display: inline-block;
