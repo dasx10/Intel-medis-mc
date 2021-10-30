@@ -327,10 +327,10 @@ footer > ul > li > h3 {
 footer > ul > li > address {
   font-size: 1.25em;
   margin-top: auto;
-  min-height: 2.5em;
 }
 
 footer > ul > li > address > a {
+  min-height: 2.5em;
   padding: 1em auto;
   display: inline-block;
   width: 100%;
@@ -355,8 +355,19 @@ footer > div a[href^='mailto'] {
   display: inline-block;
 }
 
+.avif #h {
+  background-image: url('/c/drug.avif');
+}
+
+.webp #h {
+  background-image: url('/c/drug.webp');
+}
+
+.old #h {
+  background-image: url('/c/drug.jpg');
+}
+
 #h {
-  background-image: url('/slide/drug.jpg');
   background-attachment: fixed;
   background-position: center top 80%;
   background-repeat: no-repeat;
@@ -502,8 +513,19 @@ main {
   margin-bottom: 0.25em;
 }
 
-body {
+.old {
+  background-image: url('./bg.jpg');
+}
+
+.webp {
   background-image: url('./bg.webp');
+}
+
+.avif {
+  background-image: url('./bg.avif');
+}
+
+body {
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;

@@ -111,6 +111,7 @@ addEventListener('click', function (e) {
     }
 });
 
+
 // if('serviceWorker' in navigator) {
 //     try {
 //         navigator.serviceWorker.register('/sw.js');
