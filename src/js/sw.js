@@ -1,8 +1,8 @@
-const staticCacheName = 'static-cache-v0';
+const staticCacheName  = 'static-cache-v0';
 const dynamicCacheName = 'dynamic-cache-v0';
 
-self.addEventListener('install', () => {
-    caches.open(staticCacheName).then(c => c.addAll([
+self.addEventListener('install', function () {
+    return caches.open(staticCacheName).then(c => c.addAll([
         '/',
         '/alcohol',
         '/contacts',
@@ -35,16 +35,16 @@ async function checkCache(req) {
     return await caches.match(req) || await checkOnline(req);
 }
 
-async function checkOnline(req) {
+async function checkOnline(request) {
     const cache = await caches.open(dynamicCacheName);
     try {
-        const res = await fetch(req);
-        await cache.put(req, res.clone());
+        const res = await fetch(request);
+        await cache.put(request, res.clone());
         return res;
-    } catch (error) {
-        const cachedRes = await cache.match(req);
+    } catch {
+        const cachedRes = await cache.match(request);
         if (cachedRes) return cachedRes;
-        if (req.url.indexOf('.html') !== -1) return caches.match('./offline.html');
+        if (request.url.indexOf('.html') !== -1) return caches.match('./offline.html');
         return caches.match('./images/no-image.jpg');
     }
 }

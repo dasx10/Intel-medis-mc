@@ -1,28 +1,32 @@
 <footer class='d'>
     <h2><a href="/contacts">Контактная информация</a></h2>
-    <ul>
-        {{#each fil}}
-        <li>
-            <h4><a href="/contacts">{{this.name}}</a></h4>
-            <ul>
-                {{#each this.tel}}
-                    <li><a href="tel:+38{{this}}">{{tel tel=this}}</a></li>
-                {{/each}}
-            </ul>
-            <address>{{this.address}}</address>
-        </li>
-        {{/each}}
-    </ul>
     <div>
-        <h4>{{page.drink.name}}</h4>
+        <h3><a href="/drink">{{page.drink.name}}</a></h3>
         <ul>
             {{#each page.drink.tel}}
                 <li><a href="tel:+38{{this}}">{{tel tel=this}}</a></li>
             {{/each}}
         </ul>
     </div>
+    <ul>
+        {{#each fil}}
+        <li>
+            <h3><a href="/contacts">{{this.name}}</a></h3>
+            <ul>
+                {{#each this.tel}}
+                    <li><a href="tel:+38{{this}}">{{tel tel=this}}</a></li>
+                {{/each}}
+            </ul>
+            <address>
+                <a href="{{this.linkAddress}}" rel="noreferrer" target="_blank">{{this.address}}</a>
+            </address>
+        </li>
+        {{/each}}
+    </ul>
     <div>
-        <h4>Наша почта</h4>
+        <h3>
+            <a href="mailto:{{email}}">Наша почта</a>
+        </h3>
         <a href="mailto:{{email}}">{{email}}</a>
     </div>
 </footer>

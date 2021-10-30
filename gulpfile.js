@@ -123,7 +123,6 @@ async function html(){
     }))
     .pipe(htmlmin({ collapseWhitespace: true }))
     .pipe(gulp.dest(path.build))
-
     .pipe(browserSync.stream())
 }
 
@@ -137,7 +136,6 @@ async function page () {
     }))
     .pipe(htmlmin({ collapseWhitespace: true }))
     .pipe(gulp.dest(path.build + '/page'))
-
     .pipe(browserSync.stream())
 }
 
@@ -148,25 +146,6 @@ function svg () {
     .pipe(gulp.dest('./src/icon'))
 }
 
-// function img(){
-//     setTimeout(()=>{
-//         child_process.exec('rm ./assets/image/*.*');
-//     },10000);
-//     return gulp.src(path.src.img)
-//     .pipe(webp({
-//         quality:70
-//     }))
-//     .pipe(gulp.dest(path.build))
-//     .pipe(gulp.src(path.src.img))
-//     .pipe(imagemin({
-//         progressive:true,
-//         svgoPlugins:[{removeViewBox:false}],
-//         interlaced:true,
-//         optimizationLevel:3
-//     }))
-//     .pipe(gulp.dest(path.build))
-// }
-
 function watch(){
     // gulp.watch([path.src.img],img);
     gulp.watch([
@@ -174,9 +153,9 @@ function watch(){
         path.src.components,
         path.src.html,
         path.src.data
-    ], gulp.parallel([page, html]));
-    gulp.watch(['./src/style/**/*.less'], css);
-    gulp.watch(['./public/**/*.js'], js);
+    ], gulp.parallel([page, html]))
+    gulp.watch(['./src/style/**/*.less'], css)
+    gulp.watch(['./public/**/*.js'], js)
 }
 
 

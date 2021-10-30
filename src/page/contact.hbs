@@ -1,20 +1,22 @@
 <dl id='hc'>
-    <dt><h3>{{page.drink.name}} :</h3></dt>
+    <dt><h3><a href="/{{page.drink.to}}" title="Кликните что бы узнать подробнее о {{page.drink.name}}">{{page.drink.name}}</a> :</h3></dt>
     {{#each page.drink.tel}}
-        <dd><a href="tel:+38{{this}}">{{tel tel=this}}</a></dd>
+        <dd><a href="tel:+38{{this}}" title="Кликните что бы связатся с кординатором нашей клиники">{{tel tel=this}}</a></dd>
     {{/each}}
 </dl>
 <ul id='contact'>
     {{#each fil}}
     <li>
         <div>
-            <h3>{{this.name}}</h3>
+            <h3 title="Предоставление услуги">{{this.name}}</h3>
             <ul>
                 {{#each this.tel}}
-                    <li><a href="tel:+38{{this}}">{{tel tel=this}}</a></li>
+                    <li><a href="tel:+38{{this}}" title="Кликните что бы связатся с кординатором нашей клиники">{{tel tel=this}}</a></li>
                 {{/each}}
             </ul>
-            <address>{{this.address}}</address>
+            <address>
+                <a href="{{this.linkAddress}}" rel="noreferrer" target="_blank" title="Место положение клиники по адрессу : {{this.address}}">{{this.address}}</a>
+            </address>
         </div>
         <iframe src="{{this.frame}}"></iframe>
     </li>

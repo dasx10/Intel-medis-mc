@@ -1,22 +1,37 @@
 footer {
-    padding: 1rem;
+    padding: 0 1em;
     text-align: center;
-    & h4 {
+    & h2 {
+        min-height: 3em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    & h3, & h2 {
+        min-height: 3em;
         .my(.5em);
+        & a {
+            display: inline-flex;
+            align-items: center;
+            height: 100%;
+            vertical-align: center;
+        }
     }
     & > ul {
         width: 100%;
         max-width: @container;
         display: flex;
         .mx(auto);
-        .bdy(1px solid @light);
-        .py(1rem);
+        .py(0 1rem);
         @media (max-width: 768px) {
             flex-direction: column;
         }
         & > li {
             display: flex;
             flex-direction: column;
+            & > h3 {
+                min-height: 4.5em;
+            }
             .mq({
                 width: 100%;
                 .my(1rem);
@@ -26,7 +41,14 @@ footer {
             });
             font-weight: 300;
             & > address {
+                font-size: 1.25em;
                 margin-top: auto;
+                min-height: 2.5em;
+                & > a {
+                    padding: 1em auto;
+                    display: inline-block;
+                    width: 100%;
+                }
             }
         }
 
@@ -36,7 +58,14 @@ footer {
             }
         }
     }
-    > div + div {
-        border-top:1px solid @light;
+    > div {
+        .bdy(1px solid @light);
+        .py(1em);
+        a[href^='mailto'] {
+            font-size: 1.25em;
+            margin-top: auto;
+            min-height: 2.5em;
+            display: inline-block;
+        }
     }
 }

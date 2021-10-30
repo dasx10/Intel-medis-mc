@@ -2,16 +2,22 @@
     <a href="/" class="brand">
         {{{icon src="logo"}}}
         <span><small>{{subTitle}}</small><strong>{{title}}</strong></span>
-    </a><input type="checkbox" id="m"><label for="m">&equiv;</label><ul>
+    </a>
+        <input type="checkbox" id="m">
+        <label for="m">&equiv;</label>
+        <ul>
         {{#each nav}}
             <li>
-                <a href="/{{this.to}}">{{this.name}}</a>
+                <a href="/{{this.to}}" {{#if this.des}}title="{{this.des}}"{{/if}}>{{this.name}}</a>
             </li>
         {{/each}}
-        <li><input type="checkbox" id="treatment" name="treatment"><label for="treatment">Лечение</label><ul>
+        <li>
+            <input type="checkbox" id="treatment">
+            <label for="treatment">Лечение</label>
+            <ul>
                 {{#each drower}}
                     <li>
-                        <a href="/{{this.to}}">{{this.name}}</a>
+                        <a href="/{{this.to}}" {{#if this.des}}title="{{this.des}}"{{/if}}>{{this.name}}</a>
                     </li>
                 {{/each}}
             </ul>

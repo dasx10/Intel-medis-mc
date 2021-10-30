@@ -1,5 +1,5 @@
 #c {
-    @pos: 30vh;
+    @pos: 25vh;
     @pos2: @pos + 5;
     text-shadow: .125rem .125rem .125rem #fff;
     height: 100vh;
@@ -12,6 +12,7 @@
         z-index: 2;
         .mq({
             width: 100%;
+            top: -100%;
         }, @sm, {
             padding-left: 8rem;
         });
@@ -52,6 +53,11 @@
             z-index: 0;
             opacity: 0;
             transition: opacity 2s;
+            & a {
+                width: 100%;
+                display: inline-block;
+                padding: .5em 0;
+            }
             &.a {
                 z-index: 1;
                 opacity: 1;
@@ -61,7 +67,6 @@
                 z-index: 1;
                 .box(100%);
                 font-weight: 500;
-                padding-top: @pos;
                 .mq({
                     display: flex;
                     flex-direction: column;
@@ -69,6 +74,7 @@
                     justify-content: center;
                 }, @sm, {
                     padding-left: 8rem;
+                    padding-top: @pos;
                 });
             }
         }

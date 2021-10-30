@@ -51,6 +51,9 @@
 }
 
 #m{
+    @media (min-width: 992px) {
+        display: none;
+    }
     & + label + ul {
         top: -200vh;
     }
@@ -88,6 +91,9 @@
 }
 
 #treatment {
+    @media (max-width: 992px) {
+        display: none;
+    }
     & + label {
         &::after {
             content: '▼';

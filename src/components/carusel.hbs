@@ -9,10 +9,12 @@
             <li class="a">
             {{/if}}
                 <div>
-                    <h3><a href="{{this.to}}">{{this.name}}</a></h3>
+                    <h2><a href="{{this.to}}">{{this.name}}</a></h2>
                     {{#if this.fil}}
                         {{#each this.fil}}
-                            <address>{{this.address}}</address>
+                            <address>
+                                <a href="{{this.linkAddress}}" rel="noreferrer" target="_blank">{{this.address}}</a>
+                            </address>
                             <ul>
                                 {{#each this.tel}}
                                     <li><a href="tel:+38{{this}}">{{tel tel=this}}</a></li>
