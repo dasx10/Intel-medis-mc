@@ -1,14 +1,29 @@
 
 .old {
-    background-image: url('./bg.jpg');
+    @media (orientation: landscape) {
+        background-image: url('/bg.jpg');
+    }
+    @media (orientation: portrait) {
+        background-image: url('/bg-p.jpg');
+    }
 }
 
 .webp {
-    background-image: url('./bg.webp');
+    @media (orientation: landscape) {
+        background-image: url('/bg.webp');
+    }
+    @media (orientation: portrait) {
+        background-image: url('/bg-p.webp');
+    }
 }
 
 .avif {
-    background-image: url('./bg.avif');
+    @media (orientation: landscape) {
+        background-image: url('/bg.avif');
+    }
+    @media (orientation: portrait) {
+        background-image: url('/bg-p.avif');
+    }
 }
 
 body {

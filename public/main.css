@@ -291,17 +291,16 @@ footer h2 {
 
 footer h3,
 footer h2 {
-  min-height: 3em;
   margin-top: 0.5em;
   margin-bottom: 0.5em;
 }
 
 footer h3 a,
 footer h2 a {
+  min-height: 2em;
   display: inline-flex;
   align-items: center;
   height: 100%;
-  vertical-align: center;
 }
 
 footer > ul {
@@ -318,10 +317,6 @@ footer > ul > li {
   display: flex;
   flex-direction: column;
   font-weight: 300;
-}
-
-footer > ul > li > h3 {
-  min-height: 4.5em;
 }
 
 footer > ul > li > address {
@@ -353,18 +348,6 @@ footer > div a[href^='mailto'] {
   margin-top: auto;
   min-height: 2.5em;
   display: inline-block;
-}
-
-.avif #h {
-  background-image: url('/c/drug.avif');
-}
-
-.webp #h {
-  background-image: url('/c/drug.webp');
-}
-
-.old #h {
-  background-image: url('/c/drug.jpg');
 }
 
 #h {
@@ -511,18 +494,6 @@ main {
 #cost dd li {
   margin-top: 0.25em;
   margin-bottom: 0.25em;
-}
-
-.old {
-  background-image: url('./bg.jpg');
-}
-
-.webp {
-  background-image: url('./bg.webp');
-}
-
-.avif {
-  background-image: url('./bg.avif');
 }
 
 body {
@@ -800,6 +771,10 @@ label:hover {
   #c > ul > li > div {
     padding-left: 8rem;
     padding-top: 25vh;
+  }
+
+  footer > ul > li > h3 {
+    min-height: 4.5em;
   }
 
   footer > ul > li {
@@ -1175,6 +1150,58 @@ label:hover {
 @media (min-width: 75em) and (max-width: 87.49em) {
   body {
     font-size: 1.075rem;
+  }
+}
+
+@media (orientation: landscape) {
+  .avif #h {
+    background-image: url('/c/drug.avif');
+  }
+
+  .webp #h {
+    background-image: url('/c/drug.webp');
+  }
+
+  .old #h {
+    background-image: url('/c/drug.jpg');
+  }
+
+  .old {
+    background-image: url('/bg.jpg');
+  }
+
+  .webp {
+    background-image: url('/bg.webp');
+  }
+
+  .avif {
+    background-image: url('/bg.avif');
+  }
+}
+
+@media (orientation: portrait) {
+  .avif #h {
+    background-image: url('/c/drug-p.avif');
+  }
+
+  .webp #h {
+    background-image: url('/c/drug-p.webp');
+  }
+
+  .old #h {
+    background-image: url('/c/drug-p.jpg');
+  }
+
+  .old {
+    background-image: url('/bg-p.jpg');
+  }
+
+  .webp {
+    background-image: url('/bg-p.webp');
+  }
+
+  .avif {
+    background-image: url('/bg-p.avif');
   }
 }
 

@@ -1,13 +1,28 @@
 .avif #h{
-    background-image: url('/c/drug.avif');
+    @media (orientation: landscape) {
+        background-image: url('/c/drug.avif');
+    }
+    @media (orientation: portrait) {
+        background-image: url('/c/drug-p.avif');
+    }
 }
 
 .webp #h{
-    background-image: url('/c/drug.webp');
+    @media (orientation: landscape) {
+        background-image: url('/c/drug.webp');
+    }
+    @media (orientation: portrait) {
+        background-image: url('/c/drug-p.webp');
+    }
 }
 
 .old #h{
-    background-image: url('/c/drug.jpg');
+    @media (orientation: landscape) {
+        background-image: url('/c/drug.jpg');
+    }
+    @media (orientation: portrait) {
+        background-image: url('/c/drug-p.jpg');
+    }
 }
 #h {
     background-attachment: fixed;

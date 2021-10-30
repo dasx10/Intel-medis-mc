@@ -29,7 +29,15 @@
                             {{/each}}
                         </ul>
                     {{/if}}
-                </div>​<picture><source srcset="/c/{{this.to}}.avif" type="image/avif"><source srcset="/c/{{this.to}}.webp" type="image/webp"><img src="/c/{{this.to}}.jpg" alt="{{this.to}}"></picture></li>
+                </div>
+                ​<picture>
+                    <source media='(orientation: portrait)'  srcset="/c/{{this.to}}-p.avif" type="image/avif">
+                    <source media='(orientation: portrait)'  srcset="/c/{{this.to}}-p.webp" type="image/webp">
+                    <source media='(orientation: landscape)' srcset="/c/{{this.to}}.avif" type="image/avif">
+                    <source media='(orientation: landscape)' srcset="/c/{{this.to}}.webp" type="image/webp">
+                    <img src="/c/{{this.to}}.jpg" alt="{{this.to}}">
+                </picture>
+            </li>
         {{/each}}
     </ul>
     <button>&raquo;</button>

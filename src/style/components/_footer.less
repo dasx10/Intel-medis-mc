@@ -8,13 +8,12 @@ footer {
         justify-content: center;
     }
     & h3, & h2 {
-        min-height: 3em;
         .my(.5em);
         & a {
+            min-height: 2em;
             display: inline-flex;
             align-items: center;
             height: 100%;
-            vertical-align: center;
         }
     }
     & > ul {
@@ -30,7 +29,9 @@ footer {
             display: flex;
             flex-direction: column;
             & > h3 {
-                min-height: 4.5em;
+                .mq(@sm, {
+                    min-height: 4.5em;
+                })
             }
             .mq({
                 width: 100%;
