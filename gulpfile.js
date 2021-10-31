@@ -45,24 +45,22 @@ let path = {
 
 if (isDev) browserSync.init({ server: path.build });
 
-function js() {
-    if (isProd) return gulp
-        .pipe(uglify())
-        .src('./public/s.js')
-        .pipe(gulp.dest(path.build))
-
+function js(done) {
+    if (isDev) return done()
+    
     return gulp
         .src('./public/s.js')
+        .pipe(uglify())
         .pipe(gulp.dest(path.build))
         .pipe(browserSync.stream())
 }
 
 function css(){
     const run = gulp
-    .src(path.src.css)
-    .pipe(less())
-    .pipe(gcmq())
-    .pipe(autoprefixer())
+        .src(path.src.css)
+        .pipe(less())
+        .pipe(gcmq())
+        .pipe(autoprefixer())
 
     if (isProd)  return run
         .pipe(cssmin())
