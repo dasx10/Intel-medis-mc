@@ -13,7 +13,7 @@ $.fil = [
     {
         name: 'Лечение алкоголизма',
         tel: ['0974442416', '0954442446'],
-        address: 'г. Запорожье ул. Яценко 16',
+        address: 'г. Запорожье, ул. Яценко 16',
         linkAddress: 'https://www.google.com/maps/dir//%D0%B2%D1%83%D0%BB%D0%B8%D1%86%D1%8F+%D0%AF%D1%86%D0%B5%D0%BD%D0%BA%D0%B0,+16+%D0%97%D0%B0%D0%BF%D0%BE%D1%80%D1%96%D0%B6%D0%B6%D1%8F+%D0%97%D0%B0%D0%BF%D0%BE%D1%80%D1%96%D0%B7%D1%8C%D0%BA%D0%B0+%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C+69000/@47.832238,35.1492339,14z/data=!4m8!4m7!1m0!1m5!1m1!1s0x40dc6752b0c8f257:0x546fb498b0c48a28!2m2!1d35.1492339!2d47.832238',
         service: ['alcohol'],
         frame: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10713.72248826186!2d35.149234!3d47.832238!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40dc6752b0c8f257%3A0x546fb498b0c48a28!2z0YPQuy4g0K_RhtC10L3QutC-LCAxNiwg0JfQsNC_0L7RgNC-0LbRjNC1LCDQl9Cw0L_QvtGA0L7QttGB0LrQsNGPINC-0LHQu9Cw0YHRgtGMLCA2OTAwMA!5e0!3m2!1sru!2sua!4v1549852899402'
@@ -21,15 +21,15 @@ $.fil = [
     {
         name: 'Лечение алкоголизма, табакокурения и игромании',
         tel: ['0955505382'],
-        address: 'г. Запорожье пр. Соборный 158, оф. 527',
+        address: 'г. Запорожье, пр. Соборный 158, оф. 527',
         linkAddress: 'https://www.google.com/maps/dir//%D0%BF%D1%80%D0%BE%D1%81%D0%BF.+%D0%A1%D0%BE%D0%B1%D0%BE%D1%80%D0%BD%D1%8B%D0%B9,+158+%D0%97%D0%B0%D0%BF%D0%BE%D1%80%D0%BE%D0%B6%D1%8C%D0%B5+%D0%97%D0%B0%D0%BF%D0%BE%D1%80%D0%BE%D0%B6%D1%81%D0%BA%D0%B0%D1%8F+%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C+69000/@47.8377473,35.1425358,16z/data=!4m5!4m4!1m0!1m2!1m1!1s0x40dc674b962a15f1:0xff0d42c0f3ae53f6',
         service: ['alcohol', 'drug', 'game'],
         frame: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2678.095290488253!2d35.140347115638455!3d47.8377472792006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40dc674b962a15f1%3A0xff0d42c0f3ae53f6!2z0L_RgNC-0YHQvy4g0KHQvtCx0L7RgNC90YvQuSwgMTU4LCDQl9Cw0L_QvtGA0L7QttGM0LUsINCX0LDQv9C-0YDQvtC20YHQutCw0Y8g0L7QsdC70LDRgdGC0YwsIDY5MDAw!5e0!3m2!1sru!2sua!4v1592507320751!5m2!1sru!2sua'
     },
     {
-        name: 'Консультация психотеропевта, нервопотолога, медицинского психолога',
+        name: 'Консультация психотерапевта, невропатолога, медицинского психолога',
         tel: ['0612707703', '0672707703'],
-        address: 'г. Запорожье пр. Соборный 177',
+        address: 'г. Запорожье, пр. Соборный 177',
         linkAddress: 'https://www.google.com/maps/dir//%D0%BF%D1%80%D0%BE%D1%81%D0%BF%D0%B5%D0%BA%D1%82+%D0%A1%D0%BE%D0%B1%D0%BE%D1%80%D0%BD%D0%B8%D0%B9,+177+%D0%97%D0%B0%D0%BF%D0%BE%D1%80%D1%96%D0%B6%D0%B6%D1%8F+%D0%97%D0%B0%D0%BF%D0%BE%D1%80%D1%96%D0%B7%D1%8C%D0%BA%D0%B0+%D0%BE%D0%B1%D0%BB%D0%B0%D1%81%D1%82%D1%8C+69000/@47.8570191,35.1050445,16z/data=!4m5!4m4!1m0!1m2!1m1!1s0x40dc66d0425aa5b3:0xc148072b86ba1a30',
         service: ['spec'],
         frame: 'https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d2677.1003890854654!2d35.105044!3d47.857019!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40dc66d0425aa5b3%3A0xc148072b86ba1a30!2z0L_RgNC-0YHQvy4g0KHQvtCx0L7RgNC90YvQuSwgMTc3LCDQl9Cw0L_QvtGA0L7QttGM0LUsINCX0LDQv9C-0YDQvtC20YHQutCw0Y8g0L7QsdC70LDRgdGC0YwsIDY5MDAw!5e0!3m2!1sru!2sua!4v1549853531486'

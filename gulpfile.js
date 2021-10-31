@@ -1,18 +1,23 @@
+// vanila
 const fs = require('fs');
 
+// core
 const gulp = require('gulp');
 
+// helpers
 const browserSync = require('browser-sync').create();
-const rename = require("gulp-rename");
+const rename      = require("gulp-rename");
 
-const less = require('gulp-less');
+const less         = require('gulp-less');
 const autoprefixer = require('gulp-autoprefixer');
-const gcmq = require('gulp-group-css-media-queries');
-const cssmin = require('gulp-cssmin');
+const gcmq         = require('gulp-group-css-media-queries');
+const cssmin       = require('gulp-cssmin');
 
-const htmlmin = require('gulp-htmlmin');
+// html
+const htmlmin    = require('gulp-htmlmin');
 const handlebars = require('gulp-compile-handlebars');
 
+// js
 const uglify = require('gulp-uglify');
 
 // const imagemin = require ('gulp-imagemin');
@@ -22,8 +27,8 @@ const svgo = require('gulp-svgo');
 // const del = require('del');
 // const child_process = require('child_process');
 
-const isDev = process.argv.includes('--dev');
-const isProd = !isDev;
+const isDev   = process.argv.includes('--dev');
+const isProd  = !isDev;
 
 let path = {
     src:{
@@ -38,35 +43,34 @@ let path = {
     build:'./public'
 }
 
-browserSync.init({
-    server: path.build
-});
+if (isDev) browserSync.init({ server: path.build });
 
 function js() {
+    if (isProd) return gulp
+        .pipe(uglify())
+        .src('./public/s.js')
+        .pipe(gulp.dest(path.build))
+
     return gulp
-    .src('./public/s.js')
-    // .pipe(uglify())
-    // .pipe(gulp.dest(path.build))
-    .pipe(browserSync.stream())
+        .src('./public/s.js')
+        .pipe(gulp.dest(path.build))
+        .pipe(browserSync.stream())
 }
 
 function css(){
-    if (isProd) {
-        return gulp
-        .src(path.src.css)
-        .pipe(less())
-        .pipe(autoprefixer())
-        .pipe(gcmq())
+    const run = gulp
+    .src(path.src.css)
+    .pipe(less())
+    .pipe(gcmq())
+    .pipe(autoprefixer())
+
+    if (isProd)  return run
         .pipe(cssmin())
-        .pipe(gulp.dest(path.build))
-    } else {
-        return gulp
-        .src(path.src.css)
-        .pipe(less())
-        .pipe(gcmq())
+        .pipe(gulp.dest(path.build));
+
+    return run
         .pipe(gulp.dest(path.build))
         .pipe(browserSync.stream())
-    }
 }
 
 
@@ -90,7 +94,6 @@ const hbsConfig = {
         },
         cap: function (string = '') {
             const [firstLetter = '', ...nextLetters] = string.split('');
-        
             return firstLetter.toUpperCase() + [...nextLetters].join('').toLowerCase();
         },
         tel: function ({ hash }) {
@@ -110,61 +113,82 @@ const hbsConfig = {
     }
 }
 
-async function html(){
-    await loadData();
-    return gulp
-    .src(path.src.html)
-    .pipe(handlebars($, hbsConfig))
-    .pipe(rename(function (path) {
-        const { basename } = path;
-        path.dirname = basename !== 'index' ? `./${basename}` : './';
-        path.basename = "index"
-        path.extname = ".html";
-    }))
-    .pipe(htmlmin({ collapseWhitespace: true }))
-    .pipe(gulp.dest(path.build))
-    .pipe(browserSync.stream())
+function html(done){
+    loadData().then(() => {
+        const run = gulp
+        .src(path.src.html)
+        .pipe(handlebars($, hbsConfig))
+        .pipe(rename(function (path) {
+            const { basename } = path;
+            path.dirname = basename !== 'index' ? `./${basename}` : './';
+            path.basename = "index"
+            path.extname = ".html";
+        }));
+    
+        if (isProd) run
+            .pipe(htmlmin({ collapseWhitespace: true }))
+            .pipe(gulp.dest(path.build));
+
+        else run
+            .pipe(gulp.dest(path.build))
+            .pipe(browserSync.stream());
+
+        done()
+    });
 }
 
-async function page () {
-    await loadData();
-    return gulp
-    .src(path.src.page)
-    .pipe(handlebars($, hbsConfig))
-    .pipe(rename(function (path) {
-        path.extname = ".html";
-    }))
-    .pipe(htmlmin({ collapseWhitespace: true }))
-    .pipe(gulp.dest(path.build + '/page'))
-    .pipe(browserSync.stream())
+function page (done) {
+    loadData()
+    .then(() => {
+        const run = gulp
+        .src(path.src.page)
+        .pipe(handlebars($, hbsConfig))
+        .pipe(rename(function (path) {
+            path.extname = ".html";
+        }));
+
+        if (isProd) run
+            .pipe(htmlmin({ collapseWhitespace: true }))
+            .pipe(gulp.dest(path.build + '/page'));
+
+        else run
+            .pipe(gulp.dest(path.build + '/page'))
+            .pipe(browserSync.stream())
+
+        return done();
+    })
 }
 
 function svg () {
     return gulp
-    .src('./assets/icon/*.svg')
-    .pipe(svgo())
-    .pipe(gulp.dest('./src/icon'))
+        .src('./assets/icon/*.svg')
+        .pipe(svgo())
+        .pipe(gulp.dest('./src/icon'))
 }
 
-function watch(){
-    // gulp.watch([path.src.img],img);
+function build () {
+    return gulp.parallel([
+        js,
+        css,
+        svg,
+        page,
+        html
+    ]);
+}
+
+function watch() {
     gulp.watch([
         path.src.page,
         path.src.components,
         path.src.html,
         path.src.data
     ], gulp.parallel([page, html]))
+
     gulp.watch(['./src/style/**/*.less'], css)
+
     gulp.watch(['./public/**/*.js'], js)
 }
 
-
-
-// module.exports.css=css;
-// module.exports.img=img;
-module.exports.watch=watch;
-module.exports.svg=svg;
-
-module.exports.build = function () {
-    return gulp.parallel([js, css, svg, page, html])
-}
+module.exports.watch = watch;
+module.exports.svg   = svg;
+module.exports.build = build;
