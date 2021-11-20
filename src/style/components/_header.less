@@ -41,4 +41,16 @@
     justify-content: center;
     flex-direction: column;
     padding-top: 2rem;
+    & > ul {
+        .mq({
+            display: block;
+        }, @xs, {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            justify-content: space-evenly;
+            position: absolute;
+            margin-top: 180px;
+        });
+    }
 }

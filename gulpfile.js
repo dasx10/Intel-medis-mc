@@ -116,6 +116,7 @@ function html(done){
         const run = gulp
         .src(path.src.html)
         .pipe(handlebars($, hbsConfig))
+        .pipe(htmlmin({ collapseWhitespace: true }))
         .pipe(rename(function (path) {
             const { basename } = path;
             path.dirname = basename !== 'index' ? `./${basename}` : './';
@@ -124,7 +125,6 @@ function html(done){
         }));
     
         if (isProd) run
-            .pipe(htmlmin({ collapseWhitespace: true }))
             .pipe(gulp.dest(path.build));
 
         else run
@@ -187,6 +187,10 @@ function watch() {
     gulp.watch(['./public/**/*.js'], js)
 }
 
-module.exports.watch = watch;
+
 module.exports.svg   = svg;
+module.exports.css   = css;
+module.exports.html  = html;
+
+module.exports.watch = watch;
 module.exports.build = build;

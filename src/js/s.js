@@ -65,12 +65,22 @@ nav();
 
 function getPage (href) {
     if (P[href]) {
+        console.log(11)
         document.title = P[href].match(/<title(.+)<\/title>/)[0].substr(7).replace('</title>', '');
+        console.log(2);
         $('body>h2.d').outerHTML = P[href].match(/<h2 class=['|"]d['|"]>[^<]+<\/h2>/)[0];
+        console.log(3);
         $('body>main').outerHTML = P[href].match(/<main(.+)<\/main>/)[0];
+        console.log(4);
         $('body>header').outerHTML = P[href].match(/<header(.+)<\/header>/)[0];
+        
+        console.log(5);
         history.pushState(null, null, href);
+        
+        console.log(6);
         nav(href);
+        
+        console.log(7);
         window.scroll(0, 0);
     } else {
         var xhr = new XMLHttpRequest();

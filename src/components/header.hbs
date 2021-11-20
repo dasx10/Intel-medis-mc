@@ -1,4 +1,11 @@
 <header id="h">
     <h4>Медицинский центр</h4>
     <h1>{{title}}</h1>
+    {{#if phones}}
+        <ul>
+            {{#each phones}}
+                <li><a href="tel:+38{{this}}">{{tel tel=this}}</a></li>
+            {{/each}}
+        </ul>
+    {{/if}}
 </header>
