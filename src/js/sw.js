@@ -13,7 +13,6 @@ self.addEventListener('install', function () {
         '/game',
         '/main.css',
         '/s.js',
-        '/images/no-image.jpg',
     ]));
 });
 
