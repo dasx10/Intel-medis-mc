@@ -1,9 +1,13 @@
-<dl id='hc'>
-    <dt><h3><a href="/{{page.drink.to}}" title="Кликните что бы узнать подробнее о {{page.drink.name}}">{{page.drink.name}}</a> :</h3></dt>
+<div id='hc'>
+    <h3><a href="/{{page.drink.to}}" title="Кликните что бы узнать подробнее о {{page.drink.name}}">{{page.drink.name}}</a> :</h3>
+    <ul>
     {{#each page.drink.tel}}
-        <dd><a href="tel:+38{{this}}" title="Кликните что бы связатся с кординатором нашей клиники">{{tel tel=this}}</a></dd>
+        <li>
+            <a href="tel:+38{{this}}" title="Кликните что бы связатся с кординатором нашей клиники">{{tel tel=this}}</a>
+        </li>
     {{/each}}
-</dl>
+    </ul>
+</div>
 <ul id='contact'>
     {{#each fil}}
     <li>

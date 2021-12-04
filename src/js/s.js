@@ -116,8 +116,11 @@ function Page (e) {
 addEventListener('popstate',function(){return getPage(location.href)});
 addEventListener('click', function (e) {
     switch(e.target.innerText){
-        case '»':return T(n); case '«':return T(p);
-        default: Page(e);
+        case '»':return T(n);
+        case '«':return T(p);
+        default: {
+            Page(e);
+        }
     }
 });
 
