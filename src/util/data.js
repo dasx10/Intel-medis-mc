@@ -132,6 +132,7 @@ $.subNav = $.drower
 
 $.carusel = [
     $.page.drink,
+    $.page.alcohol,
     $.page.drug,
     $.page.game,
     {
