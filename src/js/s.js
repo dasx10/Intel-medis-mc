@@ -125,10 +125,10 @@ addEventListener('click', function (e) {
 });
 
 
-// if('serviceWorker' in navigator) {
-//     try {
-//         navigator.serviceWorker.register('/sw.js');
-//     } catch(error) {
-//         console.error('serviceWorker registration failed', error);
-//     }
-// }
+if('serviceWorker' in navigator) {
+    try {
+        navigator.serviceWorker.register('/sw.js');
+    } catch(error) {
+        console.error('serviceWorker registration failed', error);
+    }
+}
