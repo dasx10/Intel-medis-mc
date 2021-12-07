@@ -13,7 +13,7 @@
     "gulp-svgo": "^2.2.1",
     "gulp-uglify": "^3.0.2",
     "gulp-wrap": "^0.15.0",
-    "webpack-cli": "^4.9.0"
+    "webpack-cli": "^4.9.1"
   },
   "name": "intel-medis",
   "version": "1.0.0",

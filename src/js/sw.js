@@ -1,5 +1,5 @@
-const staticCacheName  = 'static-cache-v0';
-const dynamicCacheName = 'dynamic-cache-v1';
+const staticCacheName  = 'static-cache-v1';
+const dynamicCacheName = 'dynamic-cache-v2';
 
 self.addEventListener('install', function () {
     return caches.open(staticCacheName).then(c => c.addAll([

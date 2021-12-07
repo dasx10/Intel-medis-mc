@@ -164,9 +164,8 @@ function svg () {
         .pipe(gulp.dest('./src/icon'))
 }
 
-function build () {
+function build (done) {
     return gulp.parallel([
-        js,
         css,
         svg,
         page,
